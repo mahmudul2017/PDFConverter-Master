@@ -34,8 +34,10 @@ class MainActivity : AppCompatActivity() {
         val builder = VmPolicy.Builder()
         StrictMode.setVmPolicy(builder.build())
 
+        val edtPdfName = edt_pdf_name.text.toString()
+
         btn_showPdf.setOnClickListener {
-            viewPdf("test-2.pdf", "mypdf/")
+            viewPdf(edtPdfName +".pdf", "mypdf/")
         }
 
         /*btn_createPdf.setOnClickListener {
@@ -132,7 +134,7 @@ class MainActivity : AppCompatActivity() {
          } */
 
         btn_createPdf.setOnClickListener {
-            createPdf(edittext.text.toString())
+            createPdf(edittext.text.toString(), edt_pdf_name.text.toString())
 
             /*tv_valueChange.text = "12"
             PdfGenerator.getBuilder()
@@ -161,7 +163,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun createPdf(sometext: String) {
+    private fun createPdf(sometext: String, pdfName: String) {
         // create a new document
         val document = PdfDocument()
         // crate a page description
@@ -198,7 +200,7 @@ class MainActivity : AppCompatActivity() {
         if (!file.exists()) {
             file.mkdirs()
         }
-        val targetPdf = directory_path + "test-2.pdf"
+        val targetPdf = directory_path + pdfName + ".pdf"
         val filePath = File(targetPdf)
         try {
             document.writeTo(FileOutputStream(filePath))
