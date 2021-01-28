@@ -14,7 +14,7 @@ class PdfActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdf)
 
-        val page: AbstractViewRenderer = object : AbstractViewRenderer(this@PdfActivity, R.layout.activity_pdf) {
+       /* val page: AbstractViewRenderer = object : AbstractViewRenderer(this@PdfActivity, R.layout.activity_pdf) {
             private var _text: String? = null
 
             fun setText(text: String?) {
@@ -48,6 +48,6 @@ class PdfActivity : AppCompatActivity() {
             }
         })
 
-        doc.createPdf(this)
+        doc.createPdf(this) */
     }
 }
